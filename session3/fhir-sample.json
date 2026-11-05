@@ -1,0 +1,400 @@
+
+{
+  "resourceType": "Bundle",
+  "type": "collection",
+  "entry": [
+    {
+      "fullUrl": "urn:uuid:patient-01",
+      "resource": {
+        "resourceType": "Patient",
+        "id": "patient-01",
+        "gender": "male",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/StructureDefinition/patient-age",
+            "valueAge": {
+              "value": 55,
+              "unit": "years",
+              "system": "http://unitsofmeasure.org",
+              "code": "a"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:encounter-01",
+      "resource": {
+        "resourceType": "Encounter",
+        "id": "encounter-01",
+        "status": "in-progress",
+        "class": {
+          "system": "http://terminology.hl7.org/CodeSystem/v3-ActCode",
+          "code": "EMER",
+          "display": "emergency"
+        },
+        "subject": {
+          "reference": "Patient/patient-01"
+        },
+        "reasonCode": [
+          {
+            "coding": [
+              {
+                "system": "http://snomed.info/sct",
+                "code": "267036007",
+                "display": "Dyspnea"
+              }
+            ],
+            "text": "Severe shortness of breath"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-htn",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-htn",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "59621000",
+              "display": "Essential hypertension"
+            }
+          ],
+          "text": "HTN"
+        },
+        "subject": {
+          "reference": "Patient/patient-01"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-dm2",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-dm2",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "confirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "44054006",
+              "display": "Type 2 diabetes mellitus"
+            }
+          ],
+          "text": "DM2"
+        },
+        "subject": {
+          "reference": "Patient/patient-01"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-hx-mi",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-hx-mi",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "unconfirmed"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "problem-list-item"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "22298006",
+              "display": "Myocardial infarction"
+            }
+          ],
+          "text": "Suspected MI history"
+        },
+        "subject": {
+          "reference": "Patient/patient-01"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:cond-ro-acs",
+      "resource": {
+        "resourceType": "Condition",
+        "id": "cond-ro-acs",
+        "clinicalStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-clinical",
+              "code": "active"
+            }
+          ]
+        },
+        "verificationStatus": {
+          "coding": [
+            {
+              "system": "http://terminology.hl7.org/CodeSystem/condition-ver-status",
+              "code": "differential"
+            }
+          ]
+        },
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/condition-category",
+                "code": "encounter-diagnosis"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "57054005",
+              "display": "Acute coronary syndrome"
+            }
+          ],
+          "text": "Rule out acute coronary syndrome"
+        },
+        "subject": {
+          "reference": "Patient/patient-01"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-tachycardia",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-tachycardia",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "3424008",
+              "display": "Tachycardia"
+            }
+          ],
+          "text": "Tachycardic"
+        },
+        "subject": {
+          "reference": "Patient/patient-01"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:obs-crackles",
+      "resource": {
+        "resourceType": "Observation",
+        "id": "obs-crackles",
+        "status": "final",
+        "category": [
+          {
+            "coding": [
+              {
+                "system": "http://terminology.hl7.org/CodeSystem/observation-category",
+                "code": "exam"
+              }
+            ]
+          }
+        ],
+        "code": {
+          "coding": [
+            {
+              "system": "http://snomed.info/sct",
+              "code": "52560006",
+              "display": "Bibasilar rales"
+            }
+          ],
+          "text": "Bibasilar crackles"
+        },
+        "subject": {
+          "reference": "Patient/patient-01"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01"
+        }
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:sr-ekg",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "sr-ekg",
+        "status": "active",
+        "intent": "order",
+        "priority": "stat",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "11524-6",
+              "display": "EKG study"
+            }
+          ],
+          "text": "Stat EKG"
+        },
+        "subject": {
+          "reference": "Patient/patient-01"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-ro-acs"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:sr-troponin",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "sr-troponin",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "10839-9",
+              "display": "Troponin I.cardiac [Mass/volume] in Blood"
+            }
+          ],
+          "text": "Troponin"
+        },
+        "subject": {
+          "reference": "Patient/patient-01"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-ro-acs"
+          }
+        ]
+      }
+    },
+    {
+      "fullUrl": "urn:uuid:sr-echo",
+      "resource": {
+        "resourceType": "ServiceRequest",
+        "id": "sr-echo",
+        "status": "active",
+        "intent": "order",
+        "code": {
+          "coding": [
+            {
+              "system": "http://loinc.org",
+              "code": "8870-7",
+              "display": "Echocardiogram study"
+            }
+          ],
+          "text": "Echo"
+        },
+        "subject": {
+          "reference": "Patient/patient-01"
+        },
+        "encounter": {
+          "reference": "Encounter/encounter-01"
+        },
+        "reasonReference": [
+          {
+            "reference": "Condition/cond-ro-acs"
+          }
+        ]
+      }
+    }
+  ]
+}
